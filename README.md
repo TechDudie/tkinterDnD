@@ -43,3 +43,5 @@ label.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 dnd.make_draggable_component(label)
 tk.mainloop() 
 ```
+
+# Side note: The module has a default snap grid of 16x16 units.
