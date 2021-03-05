@@ -4,7 +4,7 @@ Tkinter Drag-N-Drop module.
 Import this module with
 
 ```python
-import dnd
+import tkinterDnD as dnd
 ```
 
 To make a widget draggable, do
@@ -24,7 +24,7 @@ Here's an example of this module being put to use.
 
 ```python
 import tkinter
-import dnd
+import tkinterDnD as dnd
 tk = tkinter.Tk()
 tk.title("tkinterDnD")
 frame = tkinter.Frame(tk, bd=4, height=64, width=64, bg="red")
