@@ -1,3 +1,5 @@
+global grid
+grid = 16
 def make_draggable(widget):
   widget.bind("<Button-1>", on_drag_start)
   widget.bind("<B1-Motion>", on_drag_motion)
@@ -16,9 +18,10 @@ def on_drag_motion(event):
   y = widget.winfo_y() - widget._drag_start_y + event.y
   widget.place(x=x, y=y)
 def on_drag_release(event):
+  global grid
   widget = event.widget
-  x = round((widget.winfo_x() - widget._drag_start_x + event.x) / 16) * 16
-  y = round((widget.winfo_y() - widget._drag_start_y + event.y) / 16) * 16
+  x = round((widget.winfo_x() - widget._drag_start_x + event.x) / grid) * grid
+  y = round((widget.winfo_y() - widget._drag_start_y + event.y) / grid) * grid
   widget.place(x=x, y=y)
 def on_component_drag_start(event):
   widget = event.widget
@@ -32,8 +35,12 @@ def on_component_drag_motion(event):
   y = container.winfo_y() - container._drag_start_y + event.y
   container.place(x=x, y=y)
 def on_component_drag_release(event):
+  global grid
   widget = event.widget
   container = widget.nametowidget(widget.winfo_parent())
-  x = round((container.winfo_x() - container._drag_start_x + event.x) / 16) * 16
-  y = round((container.winfo_y() - container._drag_start_y + event.y) / 16) * 16
+  x = round((container.winfo_x() - container._drag_start_x + event.x) / grid) * grid
+  y = round((container.winfo_y() - container._drag_start_y + event.y) / grid) * grid
   container.place(x=x, y=y)
+def set_grid(measure):
+  global grid
+  grid = measure
