@@ -45,3 +45,5 @@ tk.mainloop()
 ```
 
 # Side note: The module has a default snap grid of 16x16 units.
+
+Set the snap grid with dnd.set_grid(grid)
